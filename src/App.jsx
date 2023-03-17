@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css'
-import QrCode from './components/QrCode'
+import Result from './components/ResultSummery'
 function App() {
 
 
   return (
     <div className="App">
-      <QrCode/>
+     <Result/>
     </div>
   )
 }
