@@ -1,21 +1,64 @@
-import React from 'react';
-//import QR from '../assets/qr.png';
+import React, { useState } from 'react';
 import './result.css';
-//<img src={QR} alt="QR code" style={{ width: '100%', height: '400px', borderRadius: 15 }} />
+import Memory from '../assets/images/icon-memory.svg';
+import Reaction from '../assets/images/icon-reaction.svg';
+import Verbal from '../assets/images/icon-verbal.svg';
+import Visual from '../assets/images/icon-visual.svg';
 function Result() {
+  const [isClicked, setIsClicked] = useState(false);
+
+  function buttonClicked() {
+    console.log('Button clicked!');
+    setIsClicked(true);
+  }
+
   return (
-    <div className="body" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',backgroundColor: '#c5d4ed', maxWidth: '1200px', height: '65vh', boxShadow: '12px 18px 40px rgba(0, 0, 0, 0.1)'}}>
-      <div className="container"style={{ width: '330px', height: '550px', backgroundColor: 'white', padding:20, borderRadius: 15, boxShadow: '2px 8px 20px rgba(0, 0, 0, 0.1)'}}>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', height: '100%' }}>
-          
-          <div style={{ display: 'flex', backgroundColor: 'white', color: 'black', flexDirection: 'column', justifyContent: 'center', height: '50%', }}>
-            <h2>Improve your front-end skills by building projects</h2>
-            <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+    <div className="body">
+      <div className='RM'>
+        <div className="container1">
+          <div className="description">
+            <h2>Your Result</h2>
+            <div className='circle'>
+              <h1>76</h1>
+              <h3>of 100</h3>
+            </div>
+            <h1>Great</h1>
+            <p>You scored higher than 65% of the people who have taken these tests.</p>
+          </div>
+        </div>
+        <div className="container2">
+          <div className="summery">
+            <h2>Summary</h2>
+            <div className="categories">
+              <div className="category reaction">
+              <img className="icon" src={Reaction} />
+                <h3>Reaction</h3>
+                <h2>80 / 100</h2>
+              </div>
+              <div className="category memory">
+              <img className="icon" src={Memory} />
+                <h3>Memory</h3>
+                <h2>92 / 100</h2>
+              </div>
+              <div className="category verbal">
+              <img className="icon" src={Verbal} />
+                <h3>Verbal</h3>
+                <h2>61 / 100</h2>
+              </div>
+              <div className="category visual">
+              <img className="icon" src={Visual} />
+                <h3>Visual</h3>
+                <h2>72 / 100</h2>
+              </div>
+              <div>
+                <button className={isClicked ? "continue-btn clicked" : "continue-btn"} onClick={buttonClicked}>Continue</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Result;
